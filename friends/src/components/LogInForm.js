@@ -21,7 +21,7 @@ const LogInForm = () => {
         axios.post('http://localhost:5000/api/login', loginInfo)
           .then(res => {
             localStorage.setItem('token', res.data.token);
-            history.push('/addfriends');
+            history.push('/friendslist');
           })
       };
 

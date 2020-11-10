@@ -11,7 +11,7 @@ function App() {
       </nav>
       <Switch>
         <Route path="/friendslist">
-         <LoginForm />
+         <div>Here are the friends</div>
         </Route>
         <Route path="/login">
          <LoginForm />
