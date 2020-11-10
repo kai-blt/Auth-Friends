@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import axiosWithAuth from 'axios';
+import axios from 'axios';
 
 const LogInForm = (props) => {
     //Set initial state
@@ -25,7 +25,7 @@ const LogInForm = (props) => {
         //Activate spinner
         setIsLoading(true);
 
-        axiosWithAuth.post('http://localhost:5000/api/login', loginInfo)
+        axios.post('http://localhost:5000/api/login', loginInfo)
           .then(res => {
             console.log(res)
             setIsLoading(false);
@@ -45,10 +45,9 @@ const LogInForm = (props) => {
         {isLoading
             ?
                 <div>Checking login info...</div>
-
             :
             <>
-            <div>{error && <div>{error}</div>}</div>
+            <div className="error">{error && <div>{error}</div>}</div>
             <form onSubmit={handleLogin}>
                 <label>Username&nbsp;
                     <input

@@ -66,3 +66,16 @@ h1 {
    padding: 2%;
    font-weight: 700;
  }
+
+ .container {
+   display: flex;
+   flex-flow: row wrap;
+   justify-content: space-around;
+ }
+
+.error {
+  margin: 2%;
+  color: #ff7a7a;
+  font-weight: 700;
+  font-size: 2rem;
+}
