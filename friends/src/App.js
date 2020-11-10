@@ -1,5 +1,8 @@
 import { Switch, Link, Route } from 'react-router-dom';
-import LoginForm from './components/LogInForm'
+import Home from './components/Home'
+import LoginForm from './components/LogInForm';
+import FriendsList from './components/FriendsList';
+import PrivateRoute from './router/PrivateRoute';
 import './App.css';
 
 function App() {
@@ -10,15 +13,9 @@ function App() {
         <Link to='/login'>Login</Link>
       </nav>
       <Switch>
-        <Route path="/friendslist">
-         <div>Here are the friends</div>
-        </Route>
-        <Route path="/login">
-         <LoginForm />
-        </Route>
-        <Route path="/">
-          <div>You are home</div>
-        </Route>
+        <PrivateRoute path="/friendslist" component={FriendsList} />
+        <Route path="/login" component={LoginForm} />
+        <Route path="/" component={Home} />
       </Switch>      
     </div>
   );
