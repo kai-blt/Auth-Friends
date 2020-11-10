@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Switch, Link, Route } from 'react-router-dom';
 import Home from './components/Home'
 import LoginForm from './components/LogInForm';
+import LogOut from './components/LogOut';
 import FriendsList from './components/FriendsList';
 import PrivateRoute from './router/PrivateRoute';
 import './App.css';
@@ -20,7 +21,7 @@ function App() {
       </nav>
       <Switch>
         <PrivateRoute path="/friendslist" component={FriendsList} />
-        <Route path="/logout" render={(props) => <Home {...props} isLoggedIn={setIsLoggedIn}/>} />
+        <Route path="/logout" render={(props) => <LogOut {...props}  isLoggedIn={setIsLoggedIn} />} />
         <Route path="/login" render={(props) => <LoginForm {...props} isLoggedIn={setIsLoggedIn}/>} />
         <Route path="/" render={(props) => <Home {...props} isLoggedIn={setIsLoggedIn}/>} />
       </Switch>      
