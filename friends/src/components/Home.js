@@ -1,9 +1,11 @@
 import React from 'react';
 
-const Home = () => {
+const Home = (props) => {
+    props.isLoggedIn(false);
     return(
         <div>
-            You are on the homepage
+            <h2>Welcome to Friendster</h2>
+            <p>Please Log in</p>
         </div>
     )
 }

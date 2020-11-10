@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axiosWithAuth from 'axios';
 
-const LogInForm = () => {
+const LogInForm = (props) => {
     //Set initial state
     const [loginInfo, setLoginInfo] = useState({username: '', password: ''});
     const [isLoading, setIsLoading] = useState(false);
@@ -29,6 +29,7 @@ const LogInForm = () => {
           .then(res => {
             console.log(res)
             setIsLoading(false);
+            props.isLoggedIn(true);
             localStorage.setItem('token', res.data.payload);
             history.push('/friendslist');
           })
@@ -65,7 +66,7 @@ const LogInForm = () => {
                         onChange={handleChange}
                     />
                 </label>
-                <button>Submit</button>
+                <button>LogIn</button>
             </form>
             </>
         } 
