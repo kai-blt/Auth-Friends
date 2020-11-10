@@ -54,7 +54,7 @@ const FriendsList = () => {
         <div>
             <h1>My Friends</h1>
             {friends
-            ? friends.map(friend => <Friend {...friend} />)
+            ? friends.map(friend => <Friend key={friend.id} {...friend} setFriends={setFriends} />)
             : <div>Please add your friends</div>
             }
         </div>
