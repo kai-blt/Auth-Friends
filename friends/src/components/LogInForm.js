@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-
+import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 
 const LogInForm = () => {
     //Set initial state
     const [loginInfo, setLoginInfo] = useState({username: '', password: ''});
-
+    const history = useHistory();
 
     //Handle form changes
     const handleChange = (e) => {
@@ -12,10 +13,20 @@ const LogInForm = () => {
             ...loginInfo,
             [e.target.name]: e.target.value
         })
-    }
+    };
+
+    //Handle login
+    const handleLogin = (e) => {
+        e.preventDefault();
+        axios.post('http://localhost:5000/api/login', loginInfo)
+          .then(res => {
+            localStorage.setItem('token', res.data.token);
+            history.push('/addfriends');
+          })
+      };
 
     return(
-        <form>
+        <form onSubmit={handleLogin}>
             <label>Username&nbsp;
                 <input
                     type="text"

@@ -10,6 +10,9 @@ function App() {
         <Link to='/login'>Login</Link>
       </nav>
       <Switch>
+        <Route path="/friendslist">
+         <LoginForm />
+        </Route>
         <Route path="/login">
          <LoginForm />
         </Route>
