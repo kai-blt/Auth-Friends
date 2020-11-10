@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import axios from 'axios';
+import axiosWithAuth from 'axios';
 
 const LogInForm = () => {
     //Set initial state
@@ -18,9 +18,10 @@ const LogInForm = () => {
     //Handle login
     const handleLogin = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:5000/api/login', loginInfo)
+        axiosWithAuth.post('http://localhost:5000/api/login', loginInfo)
           .then(res => {
-            localStorage.setItem('token', res.data.token);
+            console.log(res)
+            localStorage.setItem('token', res.data.payload);
             history.push('/friendslist');
           })
       };
